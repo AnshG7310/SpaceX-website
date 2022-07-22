@@ -1,0 +1,420 @@
+@import './variables.css';
+@import './utilities.css';
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   -webkit-font-smoothing: antialiased;
+}
+body{
+   font-family: sans-serif;
+   background-color: var(--primary);
+   color: var(--pure);
+}
+
+
+/* ============HEADER SECTION========== */
+
+
+header{
+   min-height: 100vh;
+   background: linear-gradient(135deg, rgba(0,0,0,1),rgba(0,0,0,0.2)), 
+   url(../img/sunrise.jpg);
+   background-size: cover;
+   background-position: center;
+}
+header nav{
+   padding: 20px 40px 20px 100px;
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   align-items: center;
+   border-bottom: 1px solid var(--gray);
+}
+header nav .nav-right{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+header nav .nav-right a{
+   text-decoration: none;
+   color: var(--pure);
+   margin-right: 30px;
+   position: relative;
+}
+header nav .nav-right a:after{
+   content: '';
+   display: block;
+   margin: 0 auto;
+   position: absolute;
+   left: 0;
+   bottom: -10px;
+   width: 0;
+   height: 2px;
+   background-color: var(--pure);
+   transition: width 0.3s ease-in-out;
+}
+header nav .nav-right a:hover:after{
+   width: 100%;
+}
+header nav .nav-right a.active:after{
+   width: 100%;
+}
+header nav .nav-right .search > div{
+   background: var(--dark);
+   display: flex;
+   align-items: center;
+   padding: 10px 15px;
+   border-radius: 50px;
+}
+header nav .nav-right .search > div input{
+   background: transparent;
+   border: none;
+   outline: none;
+   font-size: 16px;
+   color: var(--pure);
+   margin-left: 16px;
+}
+
+
+/* --------CONTENT SECTION-------- */
+
+
+.hero{
+   position: relative;
+}
+.social div{
+   border: 2px solid var(--pure);
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 30px;
+   transition: 0.5s;
+   opacity: 0;
+}
+
+@keyframes movein {
+   from{
+      transform: translateX(-100px);
+   }
+   to{
+      transform: translateX(0px);
+      opacity: 1;
+   }
+}
+.social div i{
+   color: var(--pure);
+   transition: 0.5s;
+}
+.social div:hover{
+   background-color: var(--pure);
+}
+.social div:hover i{
+   color: var(--dark);
+}
+.social{
+   position: absolute;
+   left: 0;
+   top: 0;
+   border-right: 1px solid var(--gray);
+   width: 100px;
+   min-height: 90vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.hero .cta{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   min-height: calc(100vh - 80px);
+}
+.hero .cta h1{
+   font-weight: 400;
+   font-size: 22px;
+   line-height: 1.7;
+   margin-bottom: 30px;
+}
+.hero .cta > div {
+   flex: 1;
+}
+.hero .cta .left-section{
+   padding: 0 60px 0 30px;
+}
+.hero .cta .right-section img{
+   height: 70vh;
+   transform: rotate(20deg);
+   animation: moveInSpace 12s ease-in-out infinite alternate;
+}
+@keyframes moveInSpace {
+   50% {
+      transform: translateY(100px) rotate(-30deg) scale(0.6);
+   }
+}
+
+
+
+/* =======LAUNCH SECTION======== */
+
+
+
+section.strip{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   background-color: var(--dark);
+   padding: 50px 0;
+}
+
+
+
+/* =======ROCKET SECTION======== */
+
+
+
+section.rocket{
+   display: grid;
+   grid-template-columns: 1fr 100px 1fr;
+   grid-gap: 80px;
+   padding: 100px 0;
+}
+
+section.rocket .rocket-body{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+section.rocket .rocket-body span{
+   font-size: 0;
+}
+section.rocket .rocket-body span img{
+   width: 100%;
+}
+section.rocket .block{
+   width: 70%;
+}
+section.rocket .block h1{
+   font-size: 32px;
+   font-weight: 400;
+}
+section.rocket .block p{
+   color: var(--mild);
+   line-height: 1.6;
+}
+section.rocket .block .underline{
+   position: relative;
+   margin-bottom: 38px;
+}
+section.rocket .block h2.underline:before{
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: -12px;
+   display: block;
+   height: 2px;
+   background-color: var(--pure);
+}
+section.rocket .block h1.underline:before{
+   width: 20%;
+}
+section.rocket .block h2{
+   font-weight: 400;
+   margin-bottom: 20px;
+}
+section.rocket .block.payload{
+   padding-top: 130px;
+}
+section.rocket .block.payload h2{
+   padding-left: 80px;
+}
+section.rocket .block.dragon{
+   padding-top: 120px;
+}
+section.rocket .block button{
+   margin-top: 30px;
+}
+section.rocket .block.composed{
+   padding-top: 60px;
+}
+section.rocket .block.first-stage{
+   padding-top: 60px;
+}
+section.rocket .block.capacity{
+   display: flex;
+   align-items: center;
+   padding-top: 40px;
+}
+section.rocket .block.capacity > div:first-child{
+   margin-right: 40px;
+}
+section.rocket .block.capacity h4{
+   font-size: 12px;
+   font-weight: 400;
+   margin-bottom: 20px;
+}
+section.rocket .block.capacity h6{
+   font-size: 30px;
+   font-weight: 400;
+}
+section.rocket .block.capacity h6 small{
+   font-size: 12px;
+}
+section.rocket .block.second-stage{
+   padding-top: 60px;
+}
+section.rocket .right-block .block.capacity.single {
+   padding-top: 120px;
+}
+section.rocket .right-block .block.engines{
+   display: flex;
+   justify-content: center;
+   padding-top: 40px;
+}
+section.rocket .right-block .block.engines img{
+   width: 180px;
+}
+section.rocket .right-block .block.marine{
+   padding-top: 100px;
+   width: 70%;
+}
+section.rocket .right-block .block.marine h2{
+   font-size: 14px;
+   padding-left: 100px;
+   margin-bottom: 26px;
+}
+section.rocket .right-block .floating-graphics{
+   position: sticky;
+   float: right;
+   top: 60px;
+   margin-right: -80px;
+}
+section.rocket .right-block .floating-graphics img{
+   height: 350px;
+}
+section.rocket .rocket-body span{
+   position: relative;
+}
+section.rocket .rocket-body span:after, 
+section.rocket .rocket-body span:nth-child(3):before{
+   content: '';
+   display: block;
+   position: absolute;
+   width: 0px;
+   height: 2px;
+   background-color: var(--pure);
+   transition: width 1s ease-in-out;
+}
+section.rocket .rocket-body span.active:nth-child(1):after{
+   bottom: 16px;
+   left: 96%;
+}
+section.rocket .rocket-body span.active:nth-child(2):after{
+   bottom: 62%;
+   right: 100%;
+}
+section.rocket .rocket-body span.active:nth-child(3):after{
+   bottom: 64%;
+   right: 90%;
+}
+section.rocket .rocket-body span.active:nth-child(3)::before{
+   bottom: 36%;
+   left: 90%;
+}
+section.rocket .rocket-body span.active:nth-child(1):after{
+   width: 120px;
+}
+section.rocket .rocket-body span.active:nth-child(2):after{
+   width: 180px;
+}
+section.rocket .rocket-body span.active:nth-child(3):after{
+   width: 200px;
+}
+section.rocket .rocket-body span.active:nth-child(3)::before{
+   width: 160px;
+}
+
+
+
+/* =======FOOTER SECTION======== */
+
+
+
+footer{
+   background-color: var(--dark);
+   padding: 60px 0;
+}
+footer > div{
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+}
+footer .copyright span{
+   font-size: 12px;
+   display: inline-block;
+   margin-top: 5px;
+}
+footer .copyright img{
+   height: 30px;
+}
+
+footer h1{
+   font-size: 18px;
+   margin-bottom: 30px;
+   position: relative;
+}
+
+footer h1:after{
+   content: '';
+   position: absolute;
+   display: block;
+   width: 70px;
+   height: 2px;
+   background-color: var(--pure);
+   left: 0;
+   bottom: -8px;
+}
+
+footer ul{
+   list-style: none;
+}
+
+footer ul li:nth-child(even){
+   margin: 10px 0;
+}
+
+footer ul li a{
+   color: var(--mild);
+   text-decoration: none;
+   font-size: 14px;
+   transition: all .3s ease-in-out;
+}
+footer ul li a:hover{
+   color: var(--pure);
+}
+footer .footer-social{
+   display: flex;
+   width: 70px;
+   flex-direction: column;
+}
+footer .footer-social div{
+   width: 35px;
+   height: 35px;
+   border: 3px solid var(--pure);
+   margin-left: 20px;
+   margin-bottom: 10px;
+   display: flex;
+   border-radius: 50%;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.5s;
+}
+
+
+
+footer .footer-social div:hover{
+   background-color: var(--pure);
+   transform: translateX(3px);
+}
